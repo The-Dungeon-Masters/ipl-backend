@@ -5,24 +5,26 @@ INSERT INTO ipl.users(user_id, user_name, password, email, points, user_type, cr
 VALUES (1, 'superadmin', '$2a$12$WL4PaL.sc7TCKkgmfZZAb.icigUwffy/tf352Iq9DDI5y83XLMSV.','superadmin@ipl', 0, 'Admin', 'Default'),
 (2, 'superman', '$2a$12$WL4PaL.sc7TCKkgmfZZAb.icigUwffy/tf352Iq9DDI5y83XLMSV.','superman@ipl.com', 0, 'User', 'Default');
 
-INSERT INTO ipl.contest(id, points, type)	VALUES (1, 0, 'lunch');
-INSERT INTO ipl.contest(id, points, type)	VALUES (2, 10, '10 Points');
-INSERT INTO ipl.contest(id, points, type)	VALUES (3, 50, '50 Points');
+--INSERT INTO ipl.contest(id, points, type)	VALUES (1, 0, 'lunch');
+INSERT INTO ipl.contest(id, points, type)	VALUES (2, 20, '20 Points');
+--INSERT INTO ipl.contest(id, points, type)	VALUES (3, 50, '50 Points');
 
 INSERT INTO ipl.user_recharge(user_id, recharge_points, recharged_by, comments, recharge_time) VALUES
-(2, 100, 1, 'initial points', NOW());
+(2, 200, 1, 'initial points', NOW());
 
 INSERT INTO ipl.contest_users(id, contest_id, user_id)
 VALUES (1, 1, 2),(2, 2, 2),(3, 3, 2);
 
 INSERT INTO ipl.teams(team_id, team_name, team_full_name)	VALUES (1, 'MI', 'MUMBAI INDIANS');
 INSERT INTO ipl.teams(team_id, team_name, team_full_name)	VALUES (2, 'KKR', 'KOLKATA KNIGHT RIDERS');
-INSERT INTO ipl.teams(team_id, team_name, team_full_name)	VALUES (3, 'DD', 'DELHI DAREDEVILS');
+INSERT INTO ipl.teams(team_id, team_name, team_full_name)	VALUES (3, 'DC', 'DELHI CAPITALS');
 INSERT INTO ipl.teams(team_id, team_name, team_full_name)	VALUES (4, 'CSK', 'CHENNAI SUPER KINGS');
-INSERT INTO ipl.teams(team_id, team_name, team_full_name)	VALUES (5, 'KXIP', 'KINGS XI PUNJAB');
+INSERT INTO ipl.teams(team_id, team_name, team_full_name)	VALUES (5, 'PBKS', 'PUNJAB KINGS');
 INSERT INTO ipl.teams(team_id, team_name, team_full_name)	VALUES (6, 'RR', 'RAJASTHAN ROYALS');
 INSERT INTO ipl.teams(team_id, team_name, team_full_name)	VALUES (7, 'RCB', 'ROYAL CHALLENGERS BANGALORE');
 INSERT INTO ipl.teams(team_id, team_name, team_full_name)	VALUES (8, 'SRH', 'SUNRISERS HYDERABAD');
+INSERT INTO ipl.teams(team_id, team_name, team_full_name)	VALUES (9, 'GT', 'GUJRAT TITANS');
+INSERT INTO ipl.teams(team_id, team_name, team_full_name)	VALUES (10, 'LSG', 'LUCKNOW SUPER GIANTS');
 
 insert into ipl.matches (match_id, team_one_id, team_two_id, status, start_time, venue) values 
 ('1', '1', '4', NULL, '2018-04-07 20:00:00'	, 'Wankhede Stadium, Mumbai '),

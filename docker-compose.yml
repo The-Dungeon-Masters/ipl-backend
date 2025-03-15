@@ -1,0 +1,54 @@
+version: '3.8'
+
+services:
+    
+#   frontend:
+#     build:
+#       context: ./ipl-ui/
+#       dockerfile: Dockerfile.frontend
+#     container_name: frontend
+#     networks:
+#       - default
+#     ports:
+#       - "4200:4200"
+#       - "80:80"
+#     restart: always  
+      
+# backend and container
+  backendipl:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    container_name: backendipl
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysqldb
+    environment:
+      #DATABASE_URL: postgres://postgres:postgres@timescaledb:5432/postgres
+      #DATABASE_URL: jdbc:mysql://mysqldb:3306/ipl?verifyServerCertificate=false&useSSL=true
+      DATABASE_URL: jdbc:mysql://mysqldb:3306/ipl
+      TZ: "Asia/Kolkata"
+    restart: always
+
+# timescale container
+  mysqldb:
+    build:
+      context: .
+      dockerfile: Dockerfile.mysqldb
+    container_name: mysqldb
+    environment:
+      #MYSQL_USER: root
+      #MYSQL_PASSWORD: root
+      MYSQL_ROOT_HOST: 'localhost'
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ALLOW_EMPTY_PASSWORD: true
+      MYSQL_DATABASE: ipl
+    ports:
+      - '3306:3306'
+    volumes:
+      - mysqldb_data:/var/lib/mysql
+    restart: always
+    
+volumes:
+  mysqldb_data:

@@ -6,7 +6,8 @@
 	<groupId>com.dungeon.master</groupId>
 	<artifactId>ipl-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	       <packaging>jar</packaging>
+        <!--<packaging>war</packaging>-->
 	
 	<name>ipl</name>
 	<description>Demo project for Spring Boot</description>
@@ -81,6 +82,8 @@
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
+			<scope>runtime</scope>
+                    <version>8.0.13</version>
 		</dependency>
 		<dependency>
 			<groupId>org.postgresql</groupId>
